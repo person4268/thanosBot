@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client();
-const token = fs.readfileSync("./config/botToken");
-const prefix = fs.readFileSync("./config/prefix");
+const configJson = JSON.parse(fs.readFileSync("./config.json"));
+const prefix = configJson.prefix;
+const token = configJson.token
 
 client.on("message", function(msg) {
   if(msg.content.startsWith(prefix + "thanos") && msg.member.hasPermission("MANAGE_MESSAGES")) {
