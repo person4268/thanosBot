@@ -11,9 +11,11 @@ client.on("message", function(msg) {
     msg.channel.messages.fetch({limit: 100}).then(function(messages) {
         messagesArrayValues = Object.values(messages.array());
         for(let i=0; i<messagesArrayValues.length; i++) {
-           if(i % 2 == 0) /* i is even */ messagesArrayValues[i].delete();
+           if(i % 2 == 0) {
+             messagesArrayValues[i].delete(); 
+           }
         }
     });
   }
-}
+});
 client.login(token);
