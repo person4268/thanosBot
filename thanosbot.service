@@ -1,0 +1,13 @@
+[Unit]
+Description=ThanosBot
+After=network.target
+
+[Service]
+Type=forking
+User=discordbots
+WorkingDirectory=/opt/discord/thanosBot
+ExecStart=/usr/bin/screen -dmS thanosbot /usr/bin/node /opt/discord/thanosBot/index.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
